@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Project1",
+      "description": "This is project number one",
+      "imgSrc": "https://images.s3.gup.ua/3cd1e963-7d17-4485-bd8b-481f11ca8e37"
+    },
+    {
+      "id": 2,
+      "title": "Project2",
+      "description": "This is project number two",
+      "imgSrc": "https://images.s3.gup.ua/3cd1e963-7d17-4485-bd8b-481f11ca8e37"
+    },
+    {
+      "id": 3,
+      "title": "Project3",
+      "description": "This is project number three",
+      "imgSrc": "https://images.s3.gup.ua/3cd1e963-7d17-4485-bd8b-481f11ca8e37"
+    },
+    {
+      "id": 4,
+      "title": "Project4",
+      "description": "This is project number four",
+      "imgSrc": "https://images.s3.gup.ua/3cd1e963-7d17-4485-bd8b-481f11ca8e37"
+    }
+  ]
+}
