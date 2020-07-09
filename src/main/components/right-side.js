@@ -1,19 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import {Typography, Grid} from "@material-ui/core";
 import {Projects} from "./projects";
-import data from "./data/data.json"
 import {CircularProgress} from "@material-ui/core";
+import connect from 'react-redux/es/connect/connect'
+import {getProjects} from "../effects";
+import {projectsSelector} from "../selectors";
 
 
-const RightSideView = () => {
-    const [projects, setProjects] = useState([])
+const mapStateToProps = state => ({
+    projects: projectsSelector(state),
+})
+
+const mapDispatchToProps = dispatch => ({
+    getProjects: () => dispatch(getProjects),
+})
+
+
+const RightSideView = ({projects, getProjects}) => {
+    const getProjectsCallback = useCallback(() => {
+        const fetchIssuer = async () => {
+            await getProjects()
+        }
+        fetchIssuer()
+    }, [getProjects])
     useEffect(() => {
-        // Update the document title using the browser API
-        setTimeout(() => {
-            setProjects(data['projects'])
-        }, 500)
-
-    }, [projects]);
+        getProjectsCallback()
+    }, [getProjectsCallback])
     return (
         <Grid container item xs={12} sm={6} direction="column"
               justify="flex-start"
@@ -22,11 +34,15 @@ const RightSideView = () => {
                 <Typography variant={'subtitle1'}>Projects</Typography>
             </Grid>
             {
-                projects.length > 0?
-                    (<Projects projects={projects}/>) :  (<CircularProgress/>)
+                projects != null ?
+                    (<Projects projects={projects}/>) : (<CircularProgress/>)
             }
         </Grid>
     );
 }
 
-export const RightSide = RightSideView
+export const RightSide = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(RightSideView)
+

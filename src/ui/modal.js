@@ -2,14 +2,11 @@ import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 
+
 const styles = theme => ({
-    paper: {
-        position: 'absolute',
-        width: 400,
-        backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
+    root: {
+            width: 'auto',
+            padding: '20px'
     }
 });
 
@@ -18,14 +15,15 @@ const DialogWindowView = ({children, classes, open, handleClose}) => {
 
 
     return (
-            <Modal
-                open={open}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
-                onClose={handleClose}
-            >
-                {children}
-            </Modal>
+        <Modal
+            open={open}
+            aria-labelledby="simple-modal-title"
+            aria-describedby="simple-modal-description"
+            onClose={handleClose}
+            className={classes.root}
+        >
+            {children}
+        </Modal>
     );
 }
 

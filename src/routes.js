@@ -1,6 +1,6 @@
 import {renderRoutes} from 'react-router-config'
 import {commonRoutes} from "./common/routes";
-import {mainRoutes} from "./main/routes";
+import {mainRoutes} from "./main";
 
 const routes = [
     ...mainRoutes(),
