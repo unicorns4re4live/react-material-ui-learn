@@ -1,30 +1,18 @@
-import React, {useEffect, useCallback} from 'react';
+import React from 'react';
 import {Typography, Grid} from "@material-ui/core";
 import {Projects} from "./projects";
 import {CircularProgress} from "@material-ui/core";
 import connect from 'react-redux/es/connect/connect'
 import {projectsSelector} from "../selectors";
-import {getData} from "../effects";
 
 
 const mapStateToProps = state => ({
     projects: projectsSelector(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    getData: () => dispatch(getData),
-})
 
-const RightSideView = ({projects, getData}) => {
-    const getDataCallback = useCallback(() => {
-        const dataFetching = async () => {
-            await getData()
-        }
-        dataFetching()
-    }, [getData])
-    useEffect(() => {
-        getDataCallback()
-    }, [getDataCallback])
+
+const RightSideView = ({projects}) => {
 
     return (
         <Grid container item xs={12} sm={12}  md={6} direction="column"
@@ -41,5 +29,5 @@ const RightSideView = ({projects, getData}) => {
     );
 }
 
-export const RightSide = connect(mapStateToProps,mapDispatchToProps)(RightSideView)
+export const RightSide = connect(mapStateToProps)(RightSideView)
 
