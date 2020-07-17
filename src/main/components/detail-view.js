@@ -5,6 +5,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {DialogWindow} from "../../ui/modal";
+import CloseIcon from '@material-ui/icons/Close';
+
 
 const styles = theme => ({
     root: {
@@ -18,13 +20,19 @@ const styles = theme => ({
         marginBottom: '40px',
     },
     media: {
-        height: 240
+        height: 500,
     },
+    close: {
+        color: 'red',
+        position: 'fixed',
+        right: 0
+    }
 });
 
 const ProjectCardDetailView = ({classes, title, imgSrc, description, open, handleClose}) => {
     const child = (
         <Card className={classes.root} elevation={0}>
+            <CloseIcon className={classes.close} onClick={handleClose}/>
             <CardContent>
                 <CardMedia
                     className={classes.media}
@@ -41,7 +49,9 @@ const ProjectCardDetailView = ({classes, title, imgSrc, description, open, handl
         </Card>
     )
     return (
-        <DialogWindow children={child} open={open} handleClose={handleClose}/>
+        <DialogWindow open={open} handleClose={handleClose}>
+            {child}
+        </DialogWindow>
     );
 }
 

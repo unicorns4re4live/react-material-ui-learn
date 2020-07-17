@@ -1,8 +1,9 @@
 import React from 'react';
-import {Typography, Grid, Link, Button} from "@material-ui/core";
+import {Typography, Grid, Link, Button, Accordion, AccordionSummary, AccordionDetails} from "@material-ui/core";
 import withStyles from '@material-ui/core/styles/withStyles'
 import AirlineSeatIndividualSuiteIcon from '@material-ui/icons/AirlineSeatIndividualSuite';
 import {CommonTemplate} from "./components/common-template";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const styles = theme => ({
     root: {
@@ -53,6 +54,20 @@ const ElementsPageView = ({classes}) => {
                 <AirlineSeatIndividualSuiteIcon width={100}/>
                 <Button className={'accept'}>Accept</Button>
                 <Button className={'cancel'}>Cancel</Button>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <Typography className={classes.heading}>Accordion</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            Accordion summary
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion>
             </Grid>
         </CommonTemplate>
     );

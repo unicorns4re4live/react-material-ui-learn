@@ -6,3 +6,4 @@ export const mainRootSelector = createSelector(
 )
 
 export const projectsSelector = createSelector(mainRootSelector, main => main.projects)
+export const technologiesSelector = createSelector(mainRootSelector, main => main.technologies)

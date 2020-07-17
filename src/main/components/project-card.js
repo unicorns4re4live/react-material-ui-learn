@@ -20,8 +20,8 @@ const styles = theme => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         maxWidth:  480,
-        minWidth: 320,
         height: 360,
+        width: '80%',
         marginBottom: '40px',
         '&:hover': {
             transform: 'scale(1.1,1.1)'

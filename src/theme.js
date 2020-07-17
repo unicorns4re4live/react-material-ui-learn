@@ -56,6 +56,18 @@ export const theme = createMuiTheme({
                 padding: 0
             }
         },
+        MuiAccordion: {
+            root: {
+                margin: '10px 0px',
+            }
+        },
+        MuiAccordionSummary: {
+          root: {
+              padding: '5px 35px',
+              fontSize: 16,
+              height: 70,
+          }
+        },
         MuiLink: {
             root: {
                 padding: '25px 50px',
@@ -68,6 +80,11 @@ export const theme = createMuiTheme({
                     backgroundColor: 'rgba(21, 150, 62,0.1)'
                 }
             }
+        },
+        MuiTabs: {
+            flexContainer: {
+              justifyContent: 'space-between'
+          }
         },
         MuiSvgIcon: {
             root: {

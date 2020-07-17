@@ -31,7 +31,7 @@ const FooterView = ({classes}) => {
         <div className={classes.root}>
             <Grid container className={classes.grid} wrap={'nowrap'} alignItems={'center'}>
                 <Grid container className={classes.rights} justify={'center'}>
-                    <Typography variant="h4" className={classes.copyright}>© 2020 All rights reserved</Typography>
+                    <Typography variant="h4" className={classes.copyright}>© {new Date().getFullYear()} All rights reserved</Typography>
                 </Grid>
             </Grid>
         </div>

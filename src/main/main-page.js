@@ -12,8 +12,8 @@ const styles = theme => ({
     }
 })
 
-
 const MainPageView = ({classes}) => {
+
     return (
         <CommonTemplate>
             <Grid className={classes.root} spacing={7} container>

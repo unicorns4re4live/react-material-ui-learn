@@ -3,8 +3,8 @@ import {Typography, Grid} from "@material-ui/core";
 import {Projects} from "./projects";
 import {CircularProgress} from "@material-ui/core";
 import connect from 'react-redux/es/connect/connect'
-import {getProjects} from "../effects";
 import {projectsSelector} from "../selectors";
+import {getData} from "../effects";
 
 
 const mapStateToProps = state => ({
@@ -12,26 +12,26 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getProjects: () => dispatch(getProjects),
+    getData: () => dispatch(getData),
 })
 
-
-const RightSideView = ({projects, getProjects}) => {
-    const getProjectsCallback = useCallback(() => {
-        const fetchIssuer = async () => {
-            await getProjects()
+const RightSideView = ({projects, getData}) => {
+    const getDataCallback = useCallback(() => {
+        const dataFetching = async () => {
+            await getData()
         }
-        fetchIssuer()
-    }, [getProjects])
+        dataFetching()
+    }, [getData])
     useEffect(() => {
-        getProjectsCallback()
-    }, [getProjectsCallback])
+        getDataCallback()
+    }, [getDataCallback])
+
     return (
-        <Grid container item xs={12} sm={6} direction="column"
+        <Grid container item xs={12} sm={12}  md={6} direction="column"
               justify="flex-start"
               alignItems="center">
             <Grid>
-                <Typography variant={'subtitle1'}>Projects</Typography>
+                <Typography variant={'subtitle1'} style={{marginBottom: -50}}>Projects</Typography>
             </Grid>
             {
                 projects != null ?
@@ -41,8 +41,5 @@ const RightSideView = ({projects, getProjects}) => {
     );
 }
 
-export const RightSide = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(RightSideView)
+export const RightSide = connect(mapStateToProps,mapDispatchToProps)(RightSideView)
 
